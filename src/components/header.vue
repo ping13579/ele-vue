@@ -36,11 +36,7 @@
             <div class='star-wrapper'>
               <star :size='36' :score ='seller.score'></star>
             </div>
-            <div class='title'>
-              <div class='line'></div>
-              <div class='text'>优惠信息</div>
-              <div class='line'></div>
-            </div>
+            <v-title text="优惠信息"></v-title>
             <div class='support-wrapper'>
               <ul v-if='seller.supports' class='supports'>
                 <li class='support-item' v-for='(item,index) in seller.supports'>
@@ -49,11 +45,7 @@
                 </li>
               </ul>
             </div>
-            <div class='title'>
-              <div class='line'></div>
-              <div class='text'>商家公告</div>
-              <div class='line'></div>
-            </div>
+            <v-title text="商家公告"></v-title>
             <div class='bulletin'>
               <p class='content'>{{seller.bulletin}}</p>
             </div>
@@ -66,7 +58,8 @@
 </template>
 
 <script type='text/ecmascript-6'>
-import star from './star.vue'
+import star from './star.vue';
+import title from './title.vue';
 export default {
     data () {
         return {
@@ -90,7 +83,8 @@ export default {
       this.classMap=['red','yellow','blue','green','gray']
     },
     components: {
-      star
+      star,
+      'v-title': title
     }
 };
 </script>
@@ -185,6 +179,7 @@ export default {
       top:0;
       left:0;
       background:rgba(7,17,27,0.8);
+      backdrop-filter:blur(10px);
       .detail-wrapper{
         min-height:100%;
         width:100%;
@@ -201,22 +196,6 @@ export default {
             margin-top:18px;
             padding:2px 0;
             text-align:center;
-          }
-          .title{
-            display:flex;
-            width:80%;
-            margin:30px auto 24px;
-            .line{
-              flex:1;
-              position:relative;
-              top:-10px;
-              border-bottom:1px solid #fff;
-            }
-            .text{
-              padding:0 12px;
-              font-size:14px;
-              font-weight:bold;
-            }
           }
           .bulletin{
             width:80%;

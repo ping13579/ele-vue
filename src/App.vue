@@ -41,7 +41,6 @@ export default {
             response = response.body;
             if(response.errno === ERR_OK){
               this.seller = response.data;
-              console.log(this.seller);
             }
           }, response => {
             // error callback
@@ -69,7 +68,6 @@ body{
   width:100%;
   height:40px;
   line-height:40px;
-  margin-top:10px;
   border:1px solid #eee;
   background:#fff;
   text-align:center;
